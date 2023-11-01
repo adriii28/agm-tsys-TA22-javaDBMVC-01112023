@@ -8,6 +8,11 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.text.SimpleDateFormat;
+
+import javax.swing.JFormattedTextField;
 
 public class ViewUsers {
 
@@ -34,7 +39,7 @@ public class ViewUsers {
 		panel = new JPanel();
 		panel.setToolTipText("");
 		panel.setBorder(new TitledBorder(null, "A\u00F1adir usuario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(30, 45, 231, 215);
+		panel.setBounds(30, 45, 231, 230);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -84,27 +89,34 @@ public class ViewUsers {
 		panel.add(lblFecha);
 		
 		btnAdd = new JButton("Añadir");
-		btnAdd.setBounds(65, 170, 89, 23);
+		btnAdd.setBounds(65, 190, 89, 23);
 		panel.add(btnAdd);
+		
+		JLabel lblNewLabel_1 = new JLabel("Formato (YYYY-MM-DD)");
+		lblNewLabel_1.setForeground(new Color(128, 128, 128));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(86, 164, 145, 14);
+		panel.add(lblNewLabel_1);
 		
 		panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Tabla clientes", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBounds(271, 45, 685, 215);
+		panel_1.setBounds(271, 45, 685, 230);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		taClientes = new JTextArea();
 		taClientes.setEditable(false);
-		taClientes.setBounds(10, 24, 665, 180);
+		taClientes.setBounds(10, 24, 665, 195);
 		panel_1.add(taClientes);
 		
 		btnDelUser = new JButton("Eliminar usuario");
-		btnDelUser.setBounds(340, 287, 150, 30);
+		btnDelUser.setBounds(339, 290, 150, 30);
 		frame.getContentPane().add(btnDelUser);
 		
 		btnUpdateUser = new JButton("Modificar usuario");
-		btnUpdateUser.setBounds(500, 287, 150, 30);
+		btnUpdateUser.setBounds(499, 290, 150, 30);
 		frame.getContentPane().add(btnUpdateUser);
+		
 		
 	}
 }

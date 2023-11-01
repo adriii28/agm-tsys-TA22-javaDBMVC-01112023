@@ -104,7 +104,8 @@ public class SQLConnect {
 
 	}
 
-	public static void insertData(Client c) {
+	public static boolean insertData(Client c) {
+		boolean state = false;
 		try {
 			Connection conexion = ConexionDB();
 
@@ -118,6 +119,7 @@ public class SQLConnect {
 					+ "', '" + c.getFecha() + "')";
 			Statement st = conexion.createStatement();
 			st.execute(Query);
+			state = true;
 			System.out.println("Datos almacenados correctamente");
 
 			closeConnection();
@@ -126,10 +128,12 @@ public class SQLConnect {
 			System.out.println(e.getMessage());
 			System.out.println("Error en el almacenamiento");
 		}
+		return state;
 
 	}
 
-	public static void updateData(Client c) {
+	public static boolean updateData(Client c) {
+		boolean state = false;
 		try {
 			Connection conexion = ConexionDB();
 
@@ -144,6 +148,7 @@ public class SQLConnect {
 			System.out.println(Query);
 			Statement st = conexion.createStatement();
 			st.execute(Query);
+			state = true;
 			System.out.println("Datos modificados correctamente");
 
 			closeConnection();
@@ -151,6 +156,7 @@ public class SQLConnect {
 			System.out.println(e.getMessage());
 			System.out.println("Error al modificar el usuario");
 		}
+		return state;
 	}
 
 	public static void deleteData(int id) {
